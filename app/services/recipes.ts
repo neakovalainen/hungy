@@ -20,3 +20,10 @@ export const addRecipe = (name: string, instructions: string) => {
 export const getSpecificRecipe = (id: number) => {
   return recipes.find((recipe) => recipe.id === id)
 }
+
+export const changeRecipe = (id: number) => {
+  const recipe = recipes.find((recipe) => recipe.id === id)
+  if (recipe) {
+    recipe.instructions = "changed"
+  }
+}

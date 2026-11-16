@@ -10,10 +10,7 @@
 - at least some level of testing
 
 ## planned technologies
-- node backend
-- react frontend (js)
-- postgresql database, maybe with sequalize?
-- css
+- nexjs probably (at least trying it out!!)
 
 ### other 
 This project has been on my to-do list/existed in my mind as an idea for the last couple years. I'm finally actually starting it to get credits (10) for the course Full stack project (CSM141093). I'm starting this project on 16th of november, and the plan is to finish during december. 

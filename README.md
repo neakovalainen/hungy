@@ -10,7 +10,9 @@
 - at least some level of testing
 
 ## planned technologies
-- nexjs probably (at least trying it out!!)
+- nexjs with typesript
+- vercel deployment
+- postgresql with drizzle orm
 
 ### other 
 This project has been on my to-do list/existed in my mind as an idea for the last couple years. I'm finally actually starting it to get credits (10) for the course Full stack project (CSM141093). I'm starting this project on 16th of november, and the plan is to finish during december. 

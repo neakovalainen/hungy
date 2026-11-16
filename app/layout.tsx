@@ -1,5 +1,5 @@
 import Link from "next/link"
-
+export const instant = false
 export default function RootLayout({children}: {
   children: React.ReactNode
 }) {

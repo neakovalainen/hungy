@@ -1,0 +1,1 @@
+// file for all future types that i will need.. none for now tho!!

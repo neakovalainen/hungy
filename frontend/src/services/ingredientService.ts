@@ -2,9 +2,10 @@ import axios from 'axios'
 import type { Ingredient, NewIngredient } from '../types'
 
 
-const baseUrl = 'http://localhost:3000/ingredients'
+const baseUrl = 'http://localhost:3000/api/ingredients'
 
 const getAll = () => {
+  console.log('got to axios!!!')
   return axios
     .get<Ingredient[]>(baseUrl)
     .then(response => response.data)

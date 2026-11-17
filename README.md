@@ -1,4 +1,4 @@
-#hungy grrrh
+# hungy grrrh
 
 feeling hungry? don't know what to eat, even though your kitchen is full? worry not! now you have a place where to store your recipes and ingredients, and can actually know if you have everything you need for them!!
 

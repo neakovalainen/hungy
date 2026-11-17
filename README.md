@@ -1,3 +1,5 @@
+feeling hungry? don't know what to eat, even though your kitchen is full? worry not! now you have a place where to store your recipes and ingredients, and can actually know if you have everything you need for them!!
+
 ## goals for this software
 - a nice looking ui that is easy to use
 - the user should be able to add food they bought, or that they have in their kitchen

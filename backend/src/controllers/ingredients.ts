@@ -5,6 +5,7 @@ const ingredientRouter = express.Router()
 
 ingredientRouter.get('/', (_request, response) => {
   const data = ingredientService.getIngredients()
+  console.log('got to ingredient router yay')
   console.log('trying to get ingredients!!')
   response.send(data)
 })

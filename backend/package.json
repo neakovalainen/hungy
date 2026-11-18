@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node ./src/index.ts",
     "dev": "concurrently \"tsc --watch\" \"node --watch ./src/index.ts\"",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build:front": "rm -rf dist && cd ../frontend && npm run build && cp -r dist ../backend"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

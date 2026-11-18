@@ -18,7 +18,6 @@ ingredientRouter.post('/', async (request, response) => {
   } catch (error) {
     return response.status(400).json({ error })
   }
-  response.send('trying?? to save a diary but idk something happened')
   return
 })
 

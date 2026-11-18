@@ -21,4 +21,5 @@ export const startDatabase = async () => {
   } catch (error) {
     console.error('unable to connect because of: ', error)
   }
+  return
 }

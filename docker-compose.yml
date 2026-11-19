@@ -15,7 +15,6 @@ services:
       start_period: 30s
       timeout: 10s
 
-
   backend:
     container_name: hungy
     restart: unless-stopped

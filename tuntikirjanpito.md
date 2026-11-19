@@ -4,7 +4,9 @@
 Today my plan is to get the database working and possibly create a docker container of my project and connect everything with is, so that putting the project to internet would be easy. So mostly still configuring and initializing the project.<br>
 Asked chatgpt for help on a problem with a typescript type error, was actually import error....
 Adding a new ingredient through ui saves it to the database (was surprisingly happy about this one)<br>
-A bit time went into solving some typescript related issues
+A bit time went into solving some typescript related issues.
+hours today: 6h 30min
+### hours total: 18h 15min
 ## 17.11.2026
 Today has been going better than yesterday, I think? I continued (started) building skeletons for both backend and frontend. It's been 5 months since my last typescript project, so I started building the skeleton by following and improvising fullstack material from part 9. I got front and backend connected to eachother, and started initializing database. I came across a ssl connection error when using postgresql with docker. So that is where I will be starting from tomorrow. <br>
 hours today: 4,5

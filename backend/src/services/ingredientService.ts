@@ -1,15 +1,26 @@
 // insert here data fetching functionality
+import { Ingredient } from '../models/ingredientModel.ts'
+import { type Request } from 'express'
 
-const getIngredients = () => {
-  console.log('backend service was called')
-  return
+
+const getIngredient = async (id: string | undefined) => {
+  const ingredient = await Ingredient.findByPk(id)
+  return ingredient
+}
+const getIngredients = async () => {
+  const data = await Ingredient.findAll()
+  return data
 }
 
-const addIngredient = () => {
-  return null
+const addIngredient = async (ingredient: Request["body"]) => {
+  const added_ingredient = await Ingredient.create({
+    ... ingredient
+  })
+  return added_ingredient
 }
 
 export default {
+  getIngredient,
   getIngredients,
   addIngredient
 }

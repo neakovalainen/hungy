@@ -1,17 +1,16 @@
 import express, {type Request, type Response} from 'express'
-import { User } from '../models/userModel.ts'
+import userService from '../services/userService.ts'
 
 const userRouter = express.Router()
 
 userRouter.get('/', async (_request: Request, response: Response) => {
-  const users = await User.findAll()
-  response.json(users)
+  const users = userService.getUsers()
+  return response.json(users)
 })
 
 userRouter.get('/:id', async (request: Request, response: Response) => {
   const id = request.params.id as string | undefined
-  const user = await User.findByPk(id)
-  
+  const user = await userService.getUser(id)
   if (user) {
     response.json(user)
   } else {
@@ -21,7 +20,7 @@ userRouter.get('/:id', async (request: Request, response: Response) => {
 
 userRouter.post('/', async (request: Request, response: Response) => {
   try {
-    const user = await User.create(request.body)
+    const user = await userService.addUser(request.body)
     response.json(user)
   } catch (error) {
     return response.status(400).json({ error })

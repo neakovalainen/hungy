@@ -1,8 +1,12 @@
-import { Model, DataTypes } from "sequelize"
+import { Model, DataTypes, type InferAttributes } from "sequelize"
 
 import { sequelize } from '../utils/db.ts'
 
-export class User extends Model {}
+export class User extends Model<InferAttributes<User>> {
+  declare id: number;
+  declare username: string;
+  declare password: string;
+}
 
 User.init({
   id: {
@@ -25,3 +29,5 @@ User.init({
   timestamps: false,
   modelName: 'user'
 })
+
+User.sync()

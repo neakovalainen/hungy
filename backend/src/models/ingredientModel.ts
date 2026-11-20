@@ -1,8 +1,11 @@
-import { Model, DataTypes } from 'sequelize'
+import { Model, DataTypes, type InferAttributes } from 'sequelize'
 
 import { sequelize } from '../utils/db.ts'
 
-export class Ingredient extends Model {}
+export class Ingredient extends Model<InferAttributes<Ingredient>> {
+  declare id: number;
+  declare name: string;
+}
 
 Ingredient.init({
   id: {

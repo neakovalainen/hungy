@@ -11,7 +11,7 @@ const getAll = () => {
     .then(response => response.data)
 }
 
-const add_new = (object: NewIngredient) => {
+const addNew = (object: NewIngredient) => {
   return axios
     .post<Ingredient>(baseUrl, object)
     .then(response => response.data)
@@ -19,5 +19,5 @@ const add_new = (object: NewIngredient) => {
 
 export default {
   getAll,
-  add_new
+  addNew
 }

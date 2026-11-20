@@ -1,43 +1,24 @@
-import { useEffect, useState } from 'react'
-import type { Ingredient } from './types'
-import ingredientService from './services/ingredientService'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+ } from 'react-router-dom'
+
+import RegistrationPage from './pages/RegistrationPage'
+import IngredientPage from './pages/ingredientPage'
 
 const App = () => {
-  const [newIngredient, setNewIngredient] = useState('')
-  const [ingredients, setIngredients] = useState<Ingredient[]>([])
-
-  useEffect(() => {
-    ingredientService.getAll().then(originalIngredients => {
-      setIngredients(originalIngredients)
-    })
-  }, [])
-
-  const addIngredient = (event: React.SyntheticEvent) => {
-    event.preventDefault()
-
-    ingredientService
-      .add_new({ name: newIngredient })
-      .then(returnedIngredient => {
-        setIngredients(ingredients.concat(returnedIngredient))
-      })
-    setNewIngredient('')
-  }
-
   return (
-    <div>
-      <form onSubmit={addIngredient}>
-        <input
-        value={newIngredient}
-        onChange={(event) => setNewIngredient(event.target.value)} 
-        />
-        <button type='submit'>add</button>
-      </form>
-      <ul>
-        {ingredients.map(ingredient =>
-          <li key={ingredient.id}>{ingredient.name}</li>
-        )}
-      </ul>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Link to="/registration">registration</Link>
+      </div>
+      <Routes>
+        <Route path='/registration' element={<RegistrationPage />} />
+        <Route path='/ingredients' element={<IngredientPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

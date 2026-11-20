@@ -2,7 +2,7 @@ import { Model, DataTypes } from 'sequelize'
 
 import { sequelize } from '../utils/db.ts'
 
-class Ingredient extends Model {}
+export class Ingredient extends Model {}
 
 Ingredient.init({
   id: {
@@ -20,7 +20,3 @@ Ingredient.init({
   timestamps: false,
   modelName: 'ingredient'
 })
-
-export default {
-  Ingredient
-}

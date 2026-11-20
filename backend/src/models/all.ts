@@ -1,7 +1,10 @@
-import model from './ingredientModel.ts'
+import { Ingredient } from './ingredientModel.ts'
+import { User } from './userModel.ts'
 
-model.Ingredient.sync()
+Ingredient.sync()
+User.sync()
 
-module.exports = {
-  model
+export default {
+  Ingredient,
+  User
 }

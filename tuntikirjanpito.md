@@ -1,5 +1,9 @@
 # timelogs for the project and daily logs on what I did (or tried to do)
 
+## 20.11.2026
+Because I did like half of what I was supposed to yesterday, I have to lock in today.. So the plan is to do at least 9 hours.<br>
+I'm planning to do user registration and log in!
+
 ## 19.11.2026
 Stopped yesterday when mybrowser didn't open the app for some reason, but just shutting down my laptop and opening it again I got it to work so that was nice. <br>
 My plan for today was to continue figuring out docker, I got it to work with docker compose, so that the application starts and things are saved to the database yay. 

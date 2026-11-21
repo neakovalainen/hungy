@@ -1,8 +1,15 @@
 # timelogs for the project and daily logs on what I did (or tried to do)
 
+## 21.11.2026
+I try not to work on weekends but because I didn't do enough hours during the week, I have to do some today. My goal is to have a working user creation frontend and database, and maybe start proper logging in that I already started a bit yesterday.
+
 ## 20.11.2026
 Because I did like half of what I was supposed to yesterday, I have to lock in today.. So the plan is to do at least 9 hours.<br>
-I'm planning to do user registration and log in!
+I'm planning to do user registration and log in! <br>
+I was able to do some refactoring and the backend for user creation. It is still missing from the database tho, so I will do that tomorrow.
+<br>
+hours today: 6h 26min
+### hours total: 27h 46min
 
 ## 19.11.2026
 Stopped yesterday when mybrowser didn't open the app for some reason, but just shutting down my laptop and opening it again I got it to work so that was nice. <br>
@@ -10,7 +17,7 @@ My plan for today was to continue figuring out docker, I got it to work with doc
 <br>
 Looked for help online since, I feel a bit lost with docker compose. Got it to work, but there were problems with the db. Asked chatgpt for help, and it helped me solve a problem partly. The last part of the problem I figured out without it.
 hours today so far: 2h 45min
-### hours total: 
+### hours total: 21h 22min
 
 ## 18.11.2026
 Today my plan is to get the database working and possibly create a docker container of my project and connect everything with is, so that putting the project to internet would be easy. So mostly still configuring and initializing the project.<br>

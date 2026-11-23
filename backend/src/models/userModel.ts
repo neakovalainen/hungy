@@ -5,7 +5,7 @@ import { sequelize } from '../utils/db.ts'
 export class User extends Model<InferAttributes<User>> {
   declare id: number;
   declare username: string;
-  declare password: string;
+  declare password_hash: string;
 }
 
 User.init({
@@ -19,7 +19,7 @@ User.init({
     unique: true,
     allowNull: false
   },
-  password: {
+  password_hash: {
     type: DataTypes.STRING,
     allowNull: false,
   }

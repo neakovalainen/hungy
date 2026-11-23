@@ -1,6 +1,8 @@
 import express from 'express'
 import ingredientRouter from './controllers/ingredients.ts'
 import userRouter from './controllers/users.ts'
+import loginRouter from './controllers/login.ts'
+
 import path from 'path'
 
 import { createRequire } from 'module'
@@ -16,6 +18,7 @@ app.use(express.json())
 app.use(express.static('dist'))
 app.use('/api/ingredients', ingredientRouter)
 app.use('/api/users', userRouter)
+app.use('/api/login', loginRouter)
 
 app.get('/ping', (_request, response) => {
   console.log('pingeddd')

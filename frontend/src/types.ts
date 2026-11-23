@@ -1,15 +1,21 @@
 
 export interface Ingredient {
-  id: string,
+  id: number,
   name: string
 }
 
 export interface User {
-  id: string,
+  id: number,
   username: string,
   password: string
 }
 
 export type NewIngredient = Omit<Ingredient, 'id'>
 
+
+
 export type NewUser = Omit<User, 'id'>
+
+export interface UserAndToken extends NewUser {
+  token: string
+}

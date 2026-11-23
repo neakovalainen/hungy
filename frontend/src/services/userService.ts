@@ -10,6 +10,7 @@ const getAll = async () => {
 }
 
 const addNew = async (object: NewUser) => {
+  console.log('came here: ', object)
   return axios
     .post<User>(baseUrl, object)
     .then(response => response.data)

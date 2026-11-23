@@ -10,18 +10,19 @@ loginRouter.post('/', async (request: Request, response: Response) => {
   if (!request.body.password) {
     return response.status(401).end()
   }
+
   const user = await userService.getUserByUsername(request.body)
 
   const correctPassword: boolean = user === null ?
   false
-  : await bcrypt.compare(request.body.password, user.password)
+  : await bcrypt.compare(request.body.password, user.password_hash)
 
   if (!(user && correctPassword)) {
     return response.status(401).json({
       error: 'either the username or the password was invalid'
     })
   }
-
+  console.log('AFTER PASSWORD CHECK')
   const assignedToken = {
     username: user.username,
     id: user.id
@@ -34,3 +35,5 @@ loginRouter.post('/', async (request: Request, response: Response) => {
   response.status(200).send({ token, username: user.username })
   return
 })
+
+export default loginRouter

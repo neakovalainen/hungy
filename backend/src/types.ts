@@ -1,1 +1,12 @@
-// file for all future types that i will need.. none for now tho!!
+import type { JwtPayload } from "jsonwebtoken"
+
+export interface extendedJwtPayload extends JwtPayload {
+  id: number
+}
+export interface UserType {
+  id: number,
+  username: string,
+  password_hash: string,
+}
+
+export type NewUser = Omit<UserType, 'id'>

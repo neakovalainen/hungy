@@ -1,7 +1,12 @@
 # timelogs for the project and daily logs on what I did (or tried to do)
 
+## 23.11.2026
+Today my plan is to get user registration and logging in to work.
+
 ## 21.11.2026
 I try not to work on weekends but because I didn't do enough hours during the week, I have to do some today. My goal is to have a working user creation frontend and database, and maybe start proper logging in that I already started a bit yesterday.
+hours today: 3h
+hours total: 30h 46min
 
 ## 20.11.2026
 Because I did like half of what I was supposed to yesterday, I have to lock in today.. So the plan is to do at least 9 hours.<br>

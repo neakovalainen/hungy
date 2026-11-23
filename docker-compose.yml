@@ -16,26 +16,42 @@ services:
       timeout: 10s
 
   backend:
-    container_name: hungy
+    container_name: hungy_backend
     restart: unless-stopped
     build:
-      context: .
-      dockerfile: Dockerfile
-
-    # working_dir: /app
-
-    # volumes:
-    #   - ./backend:/app
-
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    working_dir: /app
+    volumes:
+      - ./backend:/app
     ports: 
       - "3001:3001"
-
     environment:
       - DATABASE_URL=postgres://postgres:password@postgresql:5432/postgres?sslmode=disable
-    
+      - CHOKIDAR_USEPOLLING=true
     depends_on:
       postgresql:
         condition: service_healthy
-    
+    stdin_open: true
+    tty: true
+
+  frontend:
+    container_name: hungy_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_BACKEND_PROXY_TARGET=http://backend:3001
+      - CHOKIDAR_USEPOLLING=true
+    command: npm run dev -- --host
+    stdin_open: true
+    tty: true
+
+
 volumes:
   saved_data:

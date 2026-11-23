@@ -1,0 +1,15 @@
+# dev version with hot reload for backend
+FROM node:26 AS dev
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install
+
+EXPOSE 3001
+
+CMD ["npm", "run", "dev"]
+
+
+

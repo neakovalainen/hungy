@@ -12,10 +12,10 @@ const IngredientPage = () => {
     })
   }, [])
 
-  const addIngredient = (event: React.SyntheticEvent) => {
+  const addIngredient = async (event: React.SyntheticEvent) => {
     event.preventDefault()
 
-    ingredientService
+    await ingredientService
       .addNew({ name: newIngredient })
       .then(returnedIngredient => {
         setIngredients(ingredients.concat(returnedIngredient))
@@ -24,11 +24,15 @@ const IngredientPage = () => {
   }
   return (
     <div>
+      <p> but does it work actually?</p>
       <form onSubmit={addIngredient}>
-        <input
-        value={newIngredient}
-        onChange={(event) => setNewIngredient(event.target.value)} 
-        />
+        <label>
+          <input
+            type='text'
+            value={newIngredient}
+            onChange={(event) => setNewIngredient(event.target.value)} 
+          />
+        </label>
         <button type='submit'>add</button>
       </form>
       <ul>

@@ -1,7 +1,9 @@
 import { type Request } from 'express'
 import { User } from '../models/userModel.ts'
+import { type UserType } from '../types.ts'
 
-const getUser = async (id: string | undefined) => {
+
+const getUser = async (id: number | undefined) => {
   const user = await User.findByPk(id)
   return user
 }
@@ -20,9 +22,9 @@ const getUserByUsername = async (body: Request["body"]) => {
   return user
 }
 
-const addUser = async (user: Request["body"]) => {
+const addUser = async (user: UserType) => {
   const response = await User.create(user)
-
+  console.log('came to backservices')
   return response
 }
 

@@ -3,7 +3,7 @@ import { Ingredient } from '../models/ingredientModel.ts'
 import { type Request } from 'express'
 
 
-const getIngredient = async (id: string | undefined) => {
+const getIngredient = async (id: number | undefined) => {
   const ingredient = await Ingredient.findByPk(id)
   return ingredient
 }

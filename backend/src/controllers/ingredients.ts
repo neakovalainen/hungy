@@ -16,7 +16,7 @@ const extractToken = (request: Request) => {
 
 ingredientRouter.get('/:id', async (_request: Request, response: Response) => {
   const id = request.params.id as unknown as number | undefined
-  const data = ingredientService.getIngredient(id)
+  const data = await ingredientService.getIngredient(id)
   if (data) {
     response.json(data)
   } else {
@@ -35,17 +35,24 @@ ingredientRouter.post('/', async (request: Request, response: Response) => {
   if (!process.env.SECRET) {
     return response.status(400)
   }
+  console.log('REQUEST', request.headers)
   const token = jwt.verify(extractToken(request), process.env.SECRET) as extendedJwtPayload
-  if (token.length < 1) {
+  console.log('TOKEN', token)
+  console.log('token id', token.id)
+  if (!token.id) {
     return response.status(401).json({ error: 'invalid token....'})
   }
-  const user = userService.getUser(token.id)
+  const user = await userService.getUser(token.id)
 
   if (!user) {
     return response.status(401).json({ error: 'user not found' })
   }
+  const ingredient = {
+    name: request.body.name,
+    user_id: user.id,
+  }
   try {
-    const data = await ingredientService.addIngredient(request.body)
+    const data = await ingredientService.addIngredient(ingredient)
     return response.json(data)
   } catch (error) {
     return response.status(400).json({ error })

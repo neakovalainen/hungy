@@ -2,10 +2,10 @@ import axios from "axios"
 import type { NewUser, UserAndToken } from "../types"
 const baseUrl = 'api/login'
 
-const login = async (loginInfo: UserAndToken) => {
+const login = async (loginInfo: NewUser) => {
   console.log('servicessa', loginInfo)
   return axios
-    .post<NewUser>(baseUrl, loginInfo)
+    .post<UserAndToken>(baseUrl, loginInfo)
     .then(response => response.data)
 }
 

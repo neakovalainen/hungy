@@ -8,11 +8,11 @@ const RegistrationPage = () => {
 
   const add_user = async (event: React.SyntheticEvent) => {
     event.preventDefault()
-    console.log('user was added or sumn')
     const user_to_add: NewUser = {
       username: newUsername,
       password: userPassword
     }
+
     try {
       await userService.addNew(user_to_add)
     } catch (error) {

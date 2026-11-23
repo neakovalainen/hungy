@@ -15,7 +15,7 @@ const IngredientPage = () => {
   const addIngredient = async (event: React.SyntheticEvent) => {
     event.preventDefault()
 
-    await ingredientService
+    ingredientService
       .addNew({ name: newIngredient })
       .then(returnedIngredient => {
         setIngredients(ingredients.concat(returnedIngredient))

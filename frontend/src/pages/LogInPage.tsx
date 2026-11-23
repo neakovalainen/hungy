@@ -1,6 +1,6 @@
 import { useState } from "react"
 import loginService from "../services/loginService"
-import type { UserAndToken } from "../types"
+import type { NewUser } from "../types"
 import ingredientService from "../services/ingredientService"
 
 const LogInPage = () => {
@@ -9,14 +9,18 @@ const LogInPage = () => {
 
   const logIn = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const user: UserAndToken = {
+    const userToLogin: NewUser = {
       username: username,
       password: password,
-      token: ''
     }
     try {
-      await loginService.login(user)
+      const user = await loginService.login(userToLogin)
+      window.localStorage.setItem(
+        'loggedhungyUser', JSON.stringify(user)
+      )
+      console.log('added userrr', user)
       ingredientService.setToken(user.token)
+      console.log('added userrr', user)
     } catch (error) {
       console.log(username)
       console.log(password)

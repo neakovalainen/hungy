@@ -1,25 +1,28 @@
 import axios from 'axios'
 import type { Ingredient, NewIngredient } from '../types'
 
-let token: string = ''
 const baseUrl = '/api/ingredients'
 
 const setToken = (createToken: string) => {
-  token = `Bearer ${createToken}`
+  window.localStorage.setItem(
+    'bearerToken', `Bearer ${createToken}`
+  )
 }
 
-const getAll = () => {
+const getAll = async () => {
   console.log('got to axios!!!')
-  return axios
+  return await axios
     .get<Ingredient[]>(baseUrl)
     .then(response => response.data)
 }
 
-const addNew = (object: NewIngredient) => {
+const addNew = async (object: NewIngredient) => {
+  const token = window.localStorage.getItem('bearerToken')
+
   const config = {
     headers: { Authorization: token }
   }
-  return axios
+  return await axios
     .post<Ingredient>(baseUrl, object, config)
     .then(response => response.data)
 }

@@ -2,7 +2,6 @@ import { type Request } from 'express'
 import { User } from '../models/userModel.ts'
 import { type UserType } from '../types.ts'
 
-
 const getUser = async (id: number | undefined) => {
   const user = await User.findByPk(id)
   return user

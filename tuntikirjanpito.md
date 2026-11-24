@@ -1,12 +1,15 @@
 # timelogs for the project and daily logs on what I did (or tried to do)
 
 ## 23.11.2026
-Today my plan is to get user registration and logging in to work.
+Today my plan is to get user registration and logging in to work.<br>
+Took a while but I did get them to work! I also altered the backend and frontend so that when an user adds an ingredient it saves the user_id with the ingredient to the database!<br>
+hours today: 7h 30 min
+### hours total: 38 h 15min
 
 ## 21.11.2026
 I try not to work on weekends but because I didn't do enough hours during the week, I have to do some today. My goal is to have a working user creation frontend and database, and maybe start proper logging in that I already started a bit yesterday.
 hours today: 3h
-hours total: 30h 46min
+### hours total: 30h 46min
 
 ## 20.11.2026
 Because I did like half of what I was supposed to yesterday, I have to lock in today.. So the plan is to do at least 9 hours.<br>

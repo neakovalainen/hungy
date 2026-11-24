@@ -1,13 +1,22 @@
 import { useState } from "react"
 import userService from "../services/userService"
 import type { NewUser } from "../types"
+import { useNavigate } from "react-router-dom"
 
 const RegistrationPage = () => {
   const [newUsername, setNewUsername] = useState('')
   const [userPassword, setUserPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+
+  const navigate = useNavigate()
 
   const add_user = async (event: React.SyntheticEvent) => {
     event.preventDefault()
+    if (userPassword != confirmPassword) {
+      setUserPassword('')
+      setConfirmPassword('')
+      return console.log('oh noh, passwords do not match..')
+    }
     const user_to_add: NewUser = {
       username: newUsername,
       password: userPassword
@@ -15,6 +24,7 @@ const RegistrationPage = () => {
 
     try {
       await userService.addNew(user_to_add)
+      navigate('/login')
     } catch (error) {
       console.error('oh noh, error in registering user', error)
     }
@@ -33,12 +43,22 @@ const RegistrationPage = () => {
             onChange={(event) => setNewUsername(event.target.value)}
           />
         </label>
+        <br />
         <label>
           password
           <input
             type="password" 
             value={userPassword}
             onChange={(event) => setUserPassword(event.target.value)}
+          />
+        </label>
+        <br />
+        <label>
+          confim password
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(event) => setConfirmPassword(event.target.value)}
           />
         </label>
         <button type="submit">register</button>

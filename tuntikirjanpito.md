@@ -1,5 +1,9 @@
 # timelogs for the project and daily logs on what I did (or tried to do)
 
+## 24.11.2026
+My plan is to enhance the ui (there is like nothing rn) and maybe do some refactoring. I want to make the registration and login pages look better.
+
+
 ## 23.11.2026
 Today my plan is to get user registration and logging in to work.<br>
 Took a while but I did get them to work! I also altered the backend and frontend so that when an user adds an ingredient it saves the user_id with the ingredient to the database!<br>

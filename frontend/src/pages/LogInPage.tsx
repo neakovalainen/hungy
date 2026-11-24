@@ -2,10 +2,13 @@ import { useState } from "react"
 import loginService from "../services/loginService"
 import type { NewUser } from "../types"
 import ingredientService from "../services/ingredientService"
+import { useNavigate } from "react-router-dom"
 
 const LogInPage = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+
+  const navigate = useNavigate()
 
   const logIn = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -16,14 +19,11 @@ const LogInPage = () => {
     try {
       const user = await loginService.login(userToLogin)
       window.localStorage.setItem(
-        'loggedhungyUser', JSON.stringify(user)
+        'loggedhungyUser', JSON.stringify(user.username)
       )
-      console.log('added userrr', user)
       ingredientService.setToken(user.token)
-      console.log('added userrr', user)
+      navigate('/')
     } catch (error) {
-      console.log(username)
-      console.log(password)
       console.error('error logging in', error)
     }
   }
@@ -39,6 +39,7 @@ const LogInPage = () => {
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
+        <br/>
         <label>
           <input
             type="password"
@@ -48,6 +49,8 @@ const LogInPage = () => {
         </label>
         <button type="submit">log in</button>
       </form>
+      <p>Don't have an account yet? you can create one here</p>
+      <button type="button" onClick={() => navigate('/registration')}>register</button>
     </div>
   )
 }

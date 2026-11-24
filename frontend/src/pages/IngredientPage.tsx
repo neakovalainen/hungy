@@ -37,7 +37,7 @@ const IngredientPage = () => {
       </form>
       <ul>
         {ingredients.map(ingredient =>
-          <li key={ingredient.id}>{ingredient.name}</li>
+          <li className="ingredient" key={ingredient.id}>{ingredient.name}</li>
         )}
       </ul>
     </div>

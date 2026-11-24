@@ -1,0 +1,83 @@
+body {
+  background-color: #16131F;
+  margin: 0%;
+}
+
+h1 {
+  color: #F0D9E4;
+}
+
+button {
+  background-color: #F0D9E4;
+  border-radius: 5px;
+  border-width: 0; 
+  margin: 3%;
+  padding: 0.5% 1%;
+}
+
+button:hover {
+  background-color: #C1A0AC;
+
+}
+
+input {
+  background-color: #F0D9E4;
+  color: #16131F;
+  border-radius: 7px;
+  padding: 1%;
+}
+
+input:hover {
+  background-color: #C1A0AC;
+}
+input:focus,
+select:focus,
+textarea:focus,
+textarea:focus {
+  outline: none;
+}
+
+p {
+  color: #C1A0AC;
+  margin: 0%;
+}
+
+.navbar {
+  background-color: #4A3F4B;
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.navbarlinks {
+  color: #F0D9E4;
+  padding: 2.5%;
+  font-size: 120%;
+}
+
+.navbartext {
+  padding: 1%;
+  margin: 1%;
+  font-size: 140%;
+}
+
+.navbarlinks:hover {
+  color: #C1A0AC;
+}
+
+.centerdiv {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  text-align: center;
+}
+
+.ingredient {
+  color: #C1A0AC;
+}
+
+.inputlabel {
+  color: #16131F;
+}

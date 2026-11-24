@@ -8,20 +8,21 @@ const setToken = (createToken: string) => {
     'bearerToken', `Bearer ${createToken}`
   )
 }
+const token = window.localStorage.getItem('bearerToken')
+
+const config = {
+  headers: { Authorization: token }
+}
 
 const getAll = async () => {
+  console.log(token)
   console.log('got to axios!!!')
   return await axios
-    .get<Ingredient[]>(baseUrl)
+    .get<Ingredient[]>(baseUrl, config)
     .then(response => response.data)
 }
 
 const addNew = async (object: NewIngredient) => {
-  const token = window.localStorage.getItem('bearerToken')
-
-  const config = {
-    headers: { Authorization: token }
-  }
   return await axios
     .post<Ingredient>(baseUrl, object, config)
     .then(response => response.data)

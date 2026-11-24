@@ -7,8 +7,12 @@ const getIngredient = async (id: number | undefined) => {
   const ingredient = await Ingredient.findByPk(id)
   return ingredient
 }
-const getIngredients = async () => {
-  const data = await Ingredient.findAll()
+const getIngredients = async (id: number | undefined) => {
+  const data = await Ingredient.findAll({
+    where: {
+      user_id: id
+    }
+})
   return data
 }
 

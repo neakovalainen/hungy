@@ -24,29 +24,39 @@ ingredientRouter.get('/:id', async (_request: Request, response: Response) => {
   }
 })
 
-ingredientRouter.get('/', async (_request: Request, response: Response) => {
-  const data = await ingredientService.getIngredients()
-  console.log('got to ingredient router yay')
-  console.log('trying to get ingredients!!')
-  response.json(data)
+ingredientRouter.get('/', async (request: Request, response: Response) => {
+  if (!process.env.SECRET) {
+    return response.status(400)
+  }
+  const token = jwt.verify(extractToken(request), process.env.SECRET) as extendedJwtPayload
+
+  if (!token.id) {
+    return response.status(401).json({ error: 'invalid token....'})
+  }
+
+  const user = await userService.getUser(token.id)
+  if (!user) {
+    return response.status(401).json({ error: 'user not found' })
+  }  
+  const data = await ingredientService.getIngredients(user.id)
+  return response.json(data)
 })
 
 ingredientRouter.post('/', async (request: Request, response: Response) => {
   if (!process.env.SECRET) {
     return response.status(400)
   }
-  console.log('REQUEST', request.headers)
+
   const token = jwt.verify(extractToken(request), process.env.SECRET) as extendedJwtPayload
-  console.log('TOKEN', token)
-  console.log('token id', token.id)
   if (!token.id) {
     return response.status(401).json({ error: 'invalid token....'})
   }
-  const user = await userService.getUser(token.id)
 
+  const user = await userService.getUser(token.id)
   if (!user) {
     return response.status(401).json({ error: 'user not found' })
   }
+
   const ingredient = {
     name: request.body.name,
     user_id: user.id,

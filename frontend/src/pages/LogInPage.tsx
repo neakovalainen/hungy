@@ -29,9 +29,10 @@ const LogInPage = () => {
   }
   
   return (
-    <div>
+    <div className="centerdiv">
       <h1>Welcome! please log in below :33</h1>
       <form onSubmit={logIn}>
+        <div>
         <label>
           <input
             type="text"
@@ -39,6 +40,7 @@ const LogInPage = () => {
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
+        </div>
         <br/>
         <label>
           <input
@@ -47,7 +49,9 @@ const LogInPage = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
+        <div>
         <button type="submit">log in</button>
+        </div>
       </form>
       <p>Don't have an account yet? you can create one here</p>
       <button type="button" onClick={() => navigate('/registration')}>register</button>

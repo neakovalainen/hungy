@@ -33,18 +33,24 @@ const LogInPage = () => {
       <h1>Welcome! please log in below :33</h1>
       <form onSubmit={logIn}>
         <div>
-        <label>
+        <label className="inputlabel">
+          username
+          <br/>
           <input
             type="text"
+            placeholder="username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
         </div>
         <br/>
-        <label>
+        <label className="inputlabel">
+          password
+          <br/>
           <input
             type="password"
+            placeholder="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />

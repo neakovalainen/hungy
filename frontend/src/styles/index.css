@@ -5,6 +5,8 @@ body {
 
 h1 {
   color: #F0D9E4;
+  font-family: "Pinyon Script", cursive;
+  font-size: 400%;
 }
 
 button {
@@ -24,7 +26,9 @@ input {
   background-color: #F0D9E4;
   color: #16131F;
   border-radius: 7px;
-  padding: 1%;
+  padding: 1.5%;
+  font-family: "Redaction", serif;
+  font-size: 105%;
 }
 
 input:hover {
@@ -40,6 +44,8 @@ textarea:focus {
 p {
   color: #C1A0AC;
   margin: 0%;
+  font-family: "Redaction", serif;
+  font-size: 140%;
 }
 
 .navbar {
@@ -53,7 +59,9 @@ p {
 .navbarlinks {
   color: #F0D9E4;
   padding: 2.5%;
-  font-size: 120%;
+  font-size: 130%;
+  font-family: "Redaction", serif;
+  text-decoration: none;
 }
 
 .navbartext {

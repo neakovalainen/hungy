@@ -32,15 +32,15 @@ const RegistrationPage = () => {
 
   return (
     <div className="centerdiv">
-      <h1>arrived at registration page yay</h1>
+      <h1>Register</h1>
       <p>Provide your information below to create a new account.</p>
       <form onSubmit={add_user}>
-        <label>
+        <label className="inputlabel">
           username
           <br/>
           <input 
             type="text"
-            placeholder="username"
+            placeholder="Username"
             value={newUsername}
             onChange={(event) => setNewUsername(event.target.value)}
           />
@@ -51,18 +51,18 @@ const RegistrationPage = () => {
           <br/>
           <input
             type="password" 
-            placeholder="password"
+            placeholder="Password"
             value={userPassword}
             onChange={(event) => setUserPassword(event.target.value)}
           />
         </label>
         <br />
-        <label>
+        <label className="inputlabel">
           confim password
           <br/>
           <input
             type="password"
-            placeholder="confirm password"
+            placeholder="Confirm password"
             value={confirmPassword}
             onChange={(event) => setConfirmPassword(event.target.value)}
           />

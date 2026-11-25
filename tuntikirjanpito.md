@@ -1,7 +1,14 @@
 # timelogs for the project and daily logs on what I did (or tried to do)
 
+## 25.11.2026
+Today I am fixing my focus a little bit but still focusing on UI. I wanna do the possibility of logging out and after that is done, I need to fix page visibility so that for example home page is shown only when user is logged in. I am aiming for 6-7 hours today!
+
 ## 24.11.2026
-My plan is to enhance the ui (there is like nothing rn) and maybe do some refactoring. I want to make the registration and login pages look better.
+My plan is to enhance the ui (there is like nothing rn) and maybe do some refactoring. I want to make the registration and login pages look better. <br>
+I decided on colour plalette and maybe fonts also? Had time to enhance the ui nicely and fixed ingredient backend, so that the user can only see the ingredients they added.<br>
+hours today: 5h 30min
+### hours total: 43h 45min
+
 
 
 ## 23.11.2026

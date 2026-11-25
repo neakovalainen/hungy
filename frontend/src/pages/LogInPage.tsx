@@ -4,7 +4,7 @@ import type { NewUser } from "../types"
 import ingredientService from "../services/ingredientService"
 import { useNavigate } from "react-router-dom"
 
-const LogInPage = () => {
+const LogInPage = ({ setLoggedIn }: { setLoggedIn:(value: boolean) => void }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -22,6 +22,7 @@ const LogInPage = () => {
         'loggedhungyUser', JSON.stringify(user.username)
       )
       ingredientService.setToken(user.token)
+      setLoggedIn(true)
       navigate('/')
     } catch (error) {
       console.error('error logging in', error)
@@ -30,7 +31,7 @@ const LogInPage = () => {
   
   return (
     <div className="centerdiv">
-      <h1>Welcome! please log in below :33</h1>
+      <h1>Welcome! <br/> Please log in below</h1>
       <form onSubmit={logIn}>
         <div>
         <label className="inputlabel">
@@ -38,7 +39,7 @@ const LogInPage = () => {
           <br/>
           <input
             type="text"
-            placeholder="username"
+            placeholder="Username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
           />
@@ -50,7 +51,7 @@ const LogInPage = () => {
           <br/>
           <input
             type="password"
-            placeholder="password"
+            placeholder="Password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
@@ -59,7 +60,8 @@ const LogInPage = () => {
         <button type="submit">log in</button>
         </div>
       </form>
-      <p>Don't have an account yet? you can create one here</p>
+      <br/>
+      <p>Don't have an account yet? <br/>you can create one here</p>
       <button type="button" onClick={() => navigate('/registration')}>register</button>
     </div>
   )

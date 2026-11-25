@@ -15,6 +15,9 @@ button {
   border-width: 0; 
   margin: 3%;
   padding: 0.5% 1%;
+  font-size: 105%;
+  font-family: "Redaction", serif;
+  color: #16131F;
 }
 
 button:hover {
@@ -22,13 +25,21 @@ button:hover {
 
 }
 
+#logoutbutton {
+  padding: 2px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+
 input {
   background-color: #F0D9E4;
   color: #16131F;
   border-radius: 7px;
   padding: 1.5%;
   font-family: "Redaction", serif;
-  font-size: 105%;
+  font-size: 110%;
 }
 
 input:hover {

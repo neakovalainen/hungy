@@ -1,5 +1,5 @@
 const HomePage = () => {
-  const user = localStorage.getItem('loggedhungyUser')?.replaceAll('"', '') // user is saved as a string "user", this removes the outer " symbols  
+  const user = localStorage.getItem('loggedhungyUser')?.replaceAll('"', '') // user is saved as a string "user", this removes the outer " symbols 
   return (
     <div className="centerdiv">
       <h1>Welcome to homepage yay!</h1>

@@ -30,7 +30,7 @@ loginRouter.post('/', async (request: Request, response: Response) => {
   if (!config.SECRET) {
     throw new Error('error with token authentication')
   }
-  const token = jwt.sign(assignedToken, config.SECRET)
+  const token = jwt.sign(assignedToken, config.SECRET, {expiresIn: 10080*60})
   console.log('token assigned', token)
   return response.status(200).send({ token, username: user.username })
 })

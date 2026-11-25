@@ -16,7 +16,8 @@ const config = {
 
 const getAll = async () => {
   console.log(token)
-  console.log('got to axios!!!')
+  const curr_user = window.localStorage.getItem('loggedhungyUser')
+  console.log('curr_user', curr_user)
   return await axios
     .get<Ingredient[]>(baseUrl, config)
     .then(response => response.data)

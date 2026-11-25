@@ -33,7 +33,7 @@ const App = () => {
       <Route 
       path='/ingredients'
       element={loggedIn
-      ? <IngredientPage />
+      ? <IngredientPage setLoggedIn={setLoggedIn}/>
       :  <Navigate to='/login' replace /> 
       } />
       <Route 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import type { Ingredient } from '../types'
 import ingredientService from '../services/ingredientService'
 
-const IngredientPage = () => {
+const IngredientPage = ({ loggedIn }: {loggedIn: boolean}) => {
   const [newIngredient, setNewIngredient] = useState('')
   const [ingredients, setIngredients] = useState<Ingredient[]>([])
 
@@ -10,7 +10,7 @@ const IngredientPage = () => {
     ingredientService.getAll().then(originalIngredients => {
       setIngredients(originalIngredients)
     })
-  }, [])
+  }, [loggedIn])
 
   const addIngredient = async (event: React.SyntheticEvent) => {
     event.preventDefault()

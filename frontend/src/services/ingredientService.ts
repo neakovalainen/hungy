@@ -1,36 +1,23 @@
 import axios from 'axios'
 import type { Ingredient, NewIngredient } from '../types'
-
+//import { config } from './loginService'
 const baseUrl = '/api/ingredients'
-
-const setToken = (createToken: string) => {
-  window.localStorage.setItem(
-    'bearerToken', `Bearer ${createToken}`
-  )
-}
-const token = window.localStorage.getItem('bearerToken')
-
-const config = {
-  headers: { Authorization: token }
-}
+import {getAuth} from './loginService'
 
 const getAll = async () => {
-  console.log(token)
-  const curr_user = window.localStorage.getItem('loggedhungyUser')
-  console.log('curr_user', curr_user)
+  console.log('curr_user', )
   return await axios
-    .get<Ingredient[]>(baseUrl, config)
+    .get<Ingredient[]>(baseUrl, getAuth())
     .then(response => response.data)
 }
 
 const addNew = async (object: NewIngredient) => {
   return await axios
-    .post<Ingredient>(baseUrl, object, config)
+    .post<Ingredient>(baseUrl, object, getAuth())
     .then(response => response.data)
 }
 
 export default {
   getAll,
-  addNew,
-  setToken
+  addNew
 }

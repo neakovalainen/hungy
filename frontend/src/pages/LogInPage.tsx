@@ -1,7 +1,6 @@
 import { useState } from "react"
 import loginService from "../services/loginService"
 import type { NewUser } from "../types"
-import ingredientService from "../services/ingredientService"
 import { useNavigate } from "react-router-dom"
 
 const LogInPage = ({ setLoggedIn }: { setLoggedIn:(value: boolean) => void }) => {
@@ -21,7 +20,7 @@ const LogInPage = ({ setLoggedIn }: { setLoggedIn:(value: boolean) => void }) =>
       window.localStorage.setItem(
         'loggedhungyUser', JSON.stringify(user.username)
       )
-      ingredientService.setToken(user.token)
+      loginService.setToken(user.token)
       setLoggedIn(true)
       navigate('/')
     } catch (error) {

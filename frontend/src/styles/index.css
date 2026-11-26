@@ -31,8 +31,6 @@ button:hover {
   overflow: hidden;
 }
 
-
-
 input {
   background-color: #F0D9E4;
   color: #16131F;
@@ -116,4 +114,27 @@ p {
   animation: text-fade-in 0.6s ease-out forwards;
 }
 
+.fridge {
+  position: fixed;
+  top: 60%;
+  left: 75%;
+  translate: -50% -50%;
+  width: 300px;
+  height: 500px;
+}
 
+.ingredientdiv {
+  position: fixed;
+  top: 35%;
+  left: 12%; 
+  margin: auto;
+}
+
+#newingredientparagraph {
+  padding-bottom: 5%;
+}
+
+.ingredientpage {
+  width: 400px;
+  margin: auto;
+}

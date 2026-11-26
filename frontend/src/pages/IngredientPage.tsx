@@ -7,6 +7,8 @@ const IngredientPage = ({ loggedIn }: {loggedIn: boolean}) => {
   const [ingredients, setIngredients] = useState<Ingredient[]>([])
 
   useEffect(() => {
+    console.log('useeffect was called!!')
+    console.log('logged in?', loggedIn)
     ingredientService.getAll().then(originalIngredients => {
       setIngredients(originalIngredients)
     })
@@ -23,23 +25,28 @@ const IngredientPage = ({ loggedIn }: {loggedIn: boolean}) => {
     setNewIngredient('')
   }
   return (
-    <div>
-      <p> but does it work actually?</p>
-      <form onSubmit={addIngredient}>
-        <label>
-          <input
-            type='text'
-            value={newIngredient}
-            onChange={(event) => setNewIngredient(event.target.value)} 
-          />
-        </label>
-        <button type='submit'>add</button>
-      </form>
-      <ul>
-        {ingredients.map(ingredient =>
-          <li className="ingredient" key={ingredient.id}>{ingredient.name}</li>
-        )}
-      </ul>
+    <div className='ingredientpage'>
+      <div className='ingredientdiv'>
+        <p id='newingredientparagraph'>Add new ingredient:</p>
+        <form onSubmit={addIngredient}>
+          <label>
+            <input
+              type='text'
+              value={newIngredient}
+              onChange={(event) => setNewIngredient(event.target.value)} 
+            />
+          </label>
+          <button type='submit'>add</button>
+        </form>
+        <ul>
+          {ingredients.map(ingredient =>
+            <li className="ingredient" key={ingredient.id}>{ingredient.name}</li>
+          )}
+        </ul>
+      </div>
+      <div>
+        <img className="fridge" src="../designs/closedfridge.png"></img>
+      </div>
     </div>
   )
 }

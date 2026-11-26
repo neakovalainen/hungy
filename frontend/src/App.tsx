@@ -5,6 +5,7 @@ import {
   useLocation
  } from 'react-router-dom'
 
+import RecipePage from './pages/RecipePage' 
 import RegistrationPage from './pages/RegistrationPage'
 import IngredientPage from './pages/IngredientPage'
 import LogInPage from './pages/LogInPage'
@@ -33,7 +34,7 @@ const App = () => {
       <Route 
       path='/ingredients'
       element={loggedIn
-      ? <IngredientPage setLoggedIn={setLoggedIn}/>
+      ? <IngredientPage loggedIn={loggedIn}/>
       :  <Navigate to='/login' replace /> 
       } />
       <Route 

@@ -37,6 +37,12 @@ const App = () => {
       ? <IngredientPage loggedIn={loggedIn}/>
       :  <Navigate to='/login' replace /> 
       } />
+      <Route
+      path='/recipes'
+      element={loggedIn
+      ? <RecipePage />
+      : <Navigate to='/login' replace />
+      } />
       <Route 
       path='/login' 
       element={loggedIn

@@ -8,4 +8,5 @@ days left: 17 (weekdays) 25 in total
 - app to internet (1-2 days)
 - testing (2-3 days)
 - refactoring and cleaning code (1 day)
+- selvitä /*
 current total worse case: 12 

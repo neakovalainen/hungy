@@ -1,7 +1,9 @@
 # timelogs for the project and daily logs on what I did (or tried to do)
 
 ## 26.11.2026
-Got stuck in the fetching error so I will be spending probably a lot of time today to solve it. Due to not having any motivation, I decided to take a break and focus on drawing the assets. I drew the first version of the fridge! If I could get 6 hours done today, that would be good.
+Got stuck in the fetching error so I will be spending probably a lot of time today to solve it. Due to not having any motivation, I decided to take a break and focus on drawing the assets. I drew the first version of the fridge! If I could get 6 hours done today, that would be good.<br>
+I GOT IT TO WORK YAYYYY!!!! console logs saved me again, the problem was that the token fetching did not work correctly.....<br>
+My next task is to create the recipe page and a functionality for them! I will dedicate rest of today and tomorrow for that. Next week I'd like to focus on creating functionalities for deleting and editing ingredients/recipes and make the website overall usable.
 
 ## 25.11.2026
 Today I am fixing my focus a little bit elsewhere but still focusing on UI. I wanna do the possibility of logging out and after that is done, I need to fix page visibility so that for example home page is shown only when user is logged in. I am aiming for 6-7 hours today!<br>

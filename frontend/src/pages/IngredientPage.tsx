@@ -25,8 +25,8 @@ const IngredientPage = ({ loggedIn }: {loggedIn: boolean}) => {
     setNewIngredient('')
   }
   return (
-    <div className='ingredientpage'>
-      <div className='ingredientdiv'>
+    <div className='ingredientdiv'>
+      {/* <div className='ingredientdiv'> */}
         <p id='newingredientparagraph'>Add new ingredient:</p>
         <form onSubmit={addIngredient}>
           <label>
@@ -43,7 +43,7 @@ const IngredientPage = ({ loggedIn }: {loggedIn: boolean}) => {
             <li className="ingredient" key={ingredient.id}>{ingredient.name}</li>
           )}
         </ul>
-      </div>
+      {/* </div> */}
       <div>
         <img className="fridge" src="../designs/closedfridge.png"></img>
       </div>

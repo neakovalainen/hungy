@@ -1,6 +1,5 @@
 import axios from 'axios'
 import type { Ingredient, NewIngredient } from '../types'
-//import { config } from './loginService'
 const baseUrl = '/api/ingredients'
 import {getAuth} from './loginService'
 

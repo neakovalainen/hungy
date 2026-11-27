@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react"
+import ingredientService from "../services/ingredientService"
+import recipeService from "../services/recipeService"
+import { type NewIngredient, type NewRecipe, type NewRecipeIngredientRelation } from "../types"
 
 const RecipePage = () => {
   const [recipeName, setRecipeName] = useState('')
-  const [recipeIngredient, setRecipeIngredients] = useState([])
+  const [recipeIngredients, setRecipeIngredients] = useState<NewIngredient[]>([])
+  const [currentIngredient, setCurrentIngredient] = useState('')
   const [recipeInstructions, setRecipeInstructions] = useState('')
   const [addedIngredients, setAddedIngredients] = useState(false)
   const [nameState, setNameState] = useState(false)
@@ -11,19 +15,67 @@ const RecipePage = () => {
 
   const handleIngredientAddition = (event: React.SyntheticEvent) => {
     event.preventDefault()
-    // do usestate change for setrecipeingredients
+    setRecipeIngredients(recipeIngredients.concat({name: currentIngredient}))
   }
 
-  const addIngredient = () => {
-    // jokutoiminnallisuus yksittäisen ainesosan tallentamiseen
-  }
-  
-  const addInstructions = () => {
-    // toiminnallisuus reseptin ohjeiden lisäämiseen
-  }
-  const saveRecipe = () => {
+  const saveRecipe = async () => {
+    let alreadyExists: boolean = false
+    let worked = true
+    const recipe: NewRecipe = {
+      name: recipeName,
+      instructions: recipeInstructions
+    }
+    const added_ingredient_ids: number[] = []
+    const already_added = await ingredientService.getAll() // should this be in a try.....
+
+    if (already_added.length === 0) {
+      for (let i = 0; i <= recipeIngredients.length; i++) {
+        try {
+          const added = await ingredientService.addNew(recipeIngredients[i])
+          added_ingredient_ids.concat(added.id)
+        } catch (error) {
+          worked = false
+          console.error('error adding ingredient', error)
+        }
+      }
+    } else {
+      for (let i = 0; i <= recipeIngredients.length; i++) {
+        for (let j = 0; j <= already_added.length; j++) {
+          if (already_added[j].name === recipeIngredients[i].name) {
+            alreadyExists = true
+            added_ingredient_ids.concat(already_added[j].id)
+            break
+          }
+        }
+        if (!alreadyExists) {
+          try {
+            const added = await ingredientService.addNew(recipeIngredients[i])
+            added_ingredient_ids.concat(added.id)
+          } catch (error) {
+            worked = false
+            console.error('error adding ingredient', error)
+          }
+        }
+      }
+    }
+    try {
+      const recipe_to_add = await recipeService.addNew(recipe)
+      if (worked) {
+        for (let i = 0; i <= added_ingredient_ids.length; i++) {
+          const relation: NewRecipeIngredientRelation = {
+            recipe_id: recipe_to_add.id,
+            ingredient_id: added_ingredient_ids[i],
+          }
+          recipeService.addRecipeIngredientRelation(relation)
+        }
+      }
+    } catch (error) {
+        console.error('error adding recipe', error)
+    }
 
   }
+
+
   if (!nameState) {
     return (
     <div className="ingredientdiv">
@@ -48,13 +100,13 @@ const RecipePage = () => {
     <div className="ingredientdiv">
       <h1>Save a new recipe~~</h1>
       <p>Add ingredients one by one:</p>
-        <form onSubmit={addIngredient}>
+        <form onSubmit={handleIngredientAddition}>
           <label>
             <input
               type='text'
               placeholder="parsley"
-              value={recipeIngredient}
-              onChange={(event) => handleIngredientAddition(event)} 
+              value={currentIngredient}
+              onChange={(event) => setCurrentIngredient(event.target.value)} 
             />
           </label>
           <button type='submit'>add</button>
@@ -74,7 +126,7 @@ const RecipePage = () => {
           <input
             type='text'
             placeholder="First you need to boil water"
-            value={recipeIngredient}
+            value={recipeInstructions}
             onChange={(event) => setRecipeInstructions(event.target.value)} 
           />
         </label>
@@ -85,5 +137,4 @@ const RecipePage = () => {
     </div>
   )}
 }
-
 export default RecipePage
